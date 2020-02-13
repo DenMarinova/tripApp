@@ -1,6 +1,6 @@
 :root {
   --input-padding-x: 1.5rem;
-  --input-padding-y: 0.75rem;
+  --input-padding-y: 1rem;
 }
 
 .login,
@@ -32,13 +32,13 @@
 
 .form-label-group>input,
 .form-label-group>label {
-  padding: 0.75rem 1rem;
-  height: auto;
-  border-radius: 2rem;
+  padding: var(--input-padding-y) var(--input-padding-x);;
+  // height: auto;
+  border-radius: 1rem;
 }
 
 .form-label-group>label {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   display: block;
