@@ -1,0 +1,10 @@
+
+li{
+  float: left;
+  list-style: none;
+  width:400px;
+  margin: 0px;
+}
+li:nth-child(even){
+  margin-right: 0px;
+}
