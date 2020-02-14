@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth/auth.service';
 import { map } from 'rxjs/operators';
 import { TripList } from './models/trip-list.model';
+import { TripCreate } from './models/trip-create.model';
 
 const baseUrl = 'https://trips-b868f.firebaseio.com/trips/'
 
@@ -25,4 +26,21 @@ export class TripService {
       return trips;
      }));
   }
+
+  createNewTrip(body : TripCreate) {
+    return this.http.post(`${baseUrl}.json`, body);
+  }
+
+  getById(tripId : string) {
+    return this.http.get<TripList>(`${baseUrl}${tripId}.json`);
+  }
+
+  editTrip( body : TripCreate) {
+    return this.http.patch(`${baseUrl}.json`, body);
+  }
+
+  deleteTrip(tripId : string) {
+    return this.http.delete(`${baseUrl}${tripId}.json`);
+  }
+
 }

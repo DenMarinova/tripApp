@@ -23,7 +23,7 @@ export class AuthService {
         this.token = token;
       })
 
-      this.router.navigate(['/trip/start']);
+      this.router.navigate(['/trip/list']);
       this.toastr.success('Signed Up!', 'Success');
     })
     .catch(err => {
@@ -41,7 +41,7 @@ export class AuthService {
         this.token = token;
       })
 
-      this.router.navigate(['/trip/start']);
+      this.router.navigate(['/trip/list']);
       this.toastr.success('Loged In!', 'Success')
     })
     .catch(err => {

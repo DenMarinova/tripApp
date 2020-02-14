@@ -1,30 +1,3 @@
-<!-- <div class="row">
-  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-    <form #f="ngForm" (ngSubmit)="register(f)">
-      <div class="form-group">
-        <label for="email">Mail</label>
-        <input
-        ngModel
-        required
-        type="email"
-        id="email"
-        name="email"
-        class="form-control">
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input
-          required
-          ngModel
-          type="password"
-          id="password"
-          name="password"
-          class="form-control">
-      </div>
-      <button class="btn btn-primary" [disabled]="f.invalid" type="submit">Sign Up</button>
-    </form>
-  </div>
-</div> -->
 
 
 <div class="container-fluid">
@@ -35,7 +8,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-9 col-lg-8 mx-auto">
-              <h3 class="login-heading mb-4">Welcome back!</h3>
+              <h3 class="login-heading mb-4">Welcome!</h3>
               <form #f="ngForm" (ngSubmit)="register(f)">
                 <div class="form-label-group">
                   <input  ngModel name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>

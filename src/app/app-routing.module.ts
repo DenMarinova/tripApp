@@ -25,7 +25,9 @@ const routes: Route[] = [
     { path: 'details/:id', component: TripDetailsComponent },
     { path: 'edit/:id', component: TripEditComponent },
     { path: 'list', component: TripListComponent }
-  ], canActivate: [AuthGuard]}
+  ],
+  // canActivate: [AuthGuard]
+}
 ];
 
 @NgModule({
