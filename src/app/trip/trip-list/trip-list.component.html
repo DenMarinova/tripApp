@@ -57,7 +57,7 @@
 <div class="row">
 
   <div *ngFor="let trip of trips | async" class=" col-xl-3 col-md-6 mb-4">
-    <a  style="cursor: pointer">
+    <a  style="cursor: pointer" routerLink="/trip/start">
       <div class="card border-0 shadow">
         <img src="{{trip.imagePath}}" class="card-img-top" alt="...">
         <div class="card-body text-center">

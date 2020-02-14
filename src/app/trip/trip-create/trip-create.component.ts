@@ -25,11 +25,11 @@ export class TripCreateComponent implements OnInit {
 
   create() {
     this.tripService.createNewTrip(this.bindingModel)
- //   .subscribe((data) => {
-    //  this.toastr.success('New adventure created', 'Success')
-    //  this.router.navigate(['/trip/list']);
- //   console.log(data);
- //   })
+   .subscribe((data) => {
+     this.toastr.success('New adventure created', 'Success')
+     this.router.navigate(['/trip/list']);
+   console.log(data);
+   })
   }
 
 }

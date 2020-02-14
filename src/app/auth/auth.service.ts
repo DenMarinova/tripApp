@@ -22,13 +22,11 @@ export class AuthService {
       .then((token: string)=> {
         this.token = token;
       })
-
       this.router.navigate(['/trip/list']);
       this.toastr.success('Signed Up!', 'Success');
     })
     .catch(err => {
       this.toastr.error(err.message, 'Warning')
-
     })
   }
 
@@ -46,7 +44,6 @@ export class AuthService {
     })
     .catch(err => {
       this.toastr.error(err.message, 'Warning')
-
     })
   }
 
@@ -62,7 +59,7 @@ export class AuthService {
       .currentUser.getIdToken()
       .then((token: string)=> {
         this.token = token;
-      })
+      }).catch(err=> console.log(err))
     return this.token;
   }
 

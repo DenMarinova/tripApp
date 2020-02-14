@@ -4,6 +4,7 @@ import { AuthService } from '../auth/auth.service';
 import { map } from 'rxjs/operators';
 import { TripList } from './models/trip-list.model';
 import { TripCreate } from './models/trip-create.model';
+import { Observable } from 'rxjs';
 
 const baseUrl = 'https://trips-b868f.firebaseio.com/trips/'
 
@@ -27,7 +28,8 @@ export class TripService {
      }));
   }
 
-  createNewTrip(body : TripCreate) {
+  createNewTrip(body : TripCreate): Observable<{}>{
+    console.log(body);
     return this.http.post(`${baseUrl}.json`, body);
   }
 
