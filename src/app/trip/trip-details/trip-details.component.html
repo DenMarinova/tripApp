@@ -1,1 +1,42 @@
-<p>trip-details works!</p>
+<div *ngIf="trip" class="row">
+  <!-- <div class="col-xs-12">
+    <img
+      src="{{trip.imagePath}}"
+      alt="{{trip.name}}"
+      class="img-responsive"
+      style="max-height: 300px;">
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h1>{{trip.name}}</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+      <ul>
+          <li><a style="cursor: pointer;" routerLink="/trip/edit/{{id}}">Edit Recipe</a></li>
+          <li><a style="cursor: pointer;" (click)="deleteTrip()">Delete Recipe</a></li>
+      </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    {{trip.description}}
+  </div> -->
+  <div class="col-md-4 mt-4 mx-auto">
+    <div class="card profile-card-5">
+      <div class="card-img-block">
+        <img class="card-img-top" src="{{trip.imagePath}}" alt="{{trip.name}}">
+      </div>
+      <div class="card-body pt-0">
+        <h5 class="card-title">{{trip.name}}</h5>
+        <p class="card-text">{{trip.description}}</p>
+        <a href="#" class="btn btn-primary">Edit</a>
+
+        <button class="btn btn-lg btn-danger btn-block btn-login text-uppercase font-weight-bold mb-2"
+          type="button" (click)="deleteTrip()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

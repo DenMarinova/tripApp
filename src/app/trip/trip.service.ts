@@ -33,7 +33,7 @@ export class TripService {
     return this.http.post(`${baseUrl}.json`, body);
   }
 
-  getById(tripId : string) {
+  getById(tripId : string): Observable<any> {
     return this.http.get<TripList>(`${baseUrl}${tripId}.json`);
   }
 
