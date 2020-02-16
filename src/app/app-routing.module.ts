@@ -9,15 +9,21 @@ import { TripModule } from './trip/trip.module';
 
 
 const routes: Route[] = [
-  { path: '', component: HomeComponent},
-  { path: 'auth', children: [
-    { path: 'signin', component: SigninComponent },
-    { path: 'signup', component: SingupComponent }
-  ]},
-  { path: 'trip',
-  loadChildren: () => TripModule,
-  canActivate: [AuthGuard]
-}
+  { path: '', component: HomeComponent },
+  {
+    path: 'auth', children: [
+      { path: 'signin', component: SigninComponent },
+      { path: 'signup', component: SingupComponent }
+    ]
+  },
+  {
+    path: 'trip',
+    loadChildren: () => TripModule,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: '**', redirectTo: '/auth/signin'
+  }
 ];
 
 @NgModule({
