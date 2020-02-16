@@ -37,7 +37,7 @@ export class TripService {
     return this.http.get<TripList>(`${baseUrl}${tripId}.json`);
   }
 
-  editTrip( body : TripCreate) {
+  editTrip( body : Object): Observable<any> {
     return this.http.patch(`${baseUrl}.json`, body);
   }
 

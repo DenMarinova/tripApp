@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TripList } from '../models/trip-list.model';
 import { TripService } from '../trip.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-trip-details',
@@ -14,7 +15,9 @@ export class TripDetailsComponent implements OnInit {
 
   constructor(
     private tripServise: TripService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastr: ToastrService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -25,6 +28,10 @@ export class TripDetailsComponent implements OnInit {
     })
   }
   deleteTrip() {
-
+    this.tripServise.deleteTrip(this.id)
+    .subscribe((data) => {
+      this.toastr.success('Trip deleted', "Success");
+      this.router.navigate(['/trip/list']);
+    })
   }
 }

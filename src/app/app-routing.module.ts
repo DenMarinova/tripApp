@@ -26,7 +26,7 @@ const routes: Route[] = [
     { path: 'edit/:id', component: TripEditComponent },
     { path: 'list', component: TripListComponent }
   ],
-  // canActivate: [AuthGuard]
+  canActivate: [AuthGuard]
 }
 ];
 
