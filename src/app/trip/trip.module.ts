@@ -7,7 +7,8 @@ import { TripDetailsComponent } from './trip-details/trip-details.component';
 import { TripEditComponent } from './trip-edit/trip-edit.component';
 
 import { TripListComponent } from './trip-list/trip-list.component';
-import { RouterModule } from '@angular/router';
+
+import { TripRoutingModule } from './trip-routing.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
+    TripRoutingModule
   ]
 })
 
