@@ -8,7 +8,8 @@ import { Router } from '@angular/router';
 })
 
 export class AuthService {
-  token: string;
+  //token: string;
+  token = localStorage.getItem('tripToken')
 
   constructor(
     private toastr : ToastrService,
@@ -20,6 +21,7 @@ export class AuthService {
       firebase.auth()
       .currentUser.getIdToken()
       .then((token: string)=> {
+        this.saveToken(token);
         this.token = token;
       })
       this.router.navigate(['/trip/list']);
@@ -32,10 +34,11 @@ export class AuthService {
 
   signIn(email : string, password : string) {
     firebase.auth().signInWithEmailAndPassword(email, password)
-    .then((data) => {
+    .then(() => {
       firebase.auth()
       .currentUser.getIdToken()
       .then((token: string)=> {
+        this.saveToken(token);
         this.token = token;
       })
 
@@ -53,15 +56,28 @@ export class AuthService {
       this.router.navigate(['/auth/signin']);
       this.token = null;
     })
+    .catch(err => {
+      this.toastr.error(err.message, 'Warning')
+    })
+
+    localStorage.clear();
   }
-  getToken() {
-    firebase.auth()
-      .currentUser.getIdToken()
-      .then((token: string)=> {
-        this.token = token;
-      }).catch(err=> console.log(err))
-    return this.token;
-  }
+  // getToken() {
+  //   firebase.auth()
+  //     .currentUser.getIdToken()
+  //     .then((token: string)=> {
+  //       this.token = token;
+  //       console.log(token);
+
+  //     }).catch(err=> console.log(err))
+  //   return this.token;
+
+
+  // }
+
+  saveToken(token: string){
+    localStorage.setItem('tripToken', token);
+    }
 
   isAuthenticated() : boolean {
     return this.token != null;

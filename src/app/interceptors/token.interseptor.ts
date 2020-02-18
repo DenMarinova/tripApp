@@ -16,7 +16,7 @@ export class TokenInterceptor implements HttpInterceptor {
   ) { }
   intercept(req: HttpRequest<any>, next: HttpHandler)
   : Observable<HttpEvent<any>> {
-    const token = this.authService.getToken();
+    const token = localStorage.getItem('tripToken');
     if(token) {
       req = req.clone({
         url: `${req.url}?auth=${token}`

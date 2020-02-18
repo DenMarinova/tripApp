@@ -33,7 +33,7 @@ export class TripEditComponent implements OnInit {
       [this.id]: this.bindingModel
     }
     this.tripService.editTrip(body)
-    .subscribe((data) => {
+    .subscribe(() => {
       this.toastr.success('Trip edited!', 'Success!');
       this.router.navigate(['/trip/list']);
     })
