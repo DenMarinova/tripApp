@@ -18,8 +18,6 @@ import { TripModule } from './trip/trip.module';
 @NgModule({
   declarations: [
     AppComponent,
-
-
     HeaderComponent,
     FooterComponent,
     HomeComponent

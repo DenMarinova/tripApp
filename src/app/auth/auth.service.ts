@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 
 export class AuthService {
   //token: string;
-  token = localStorage.getItem('tripToken')
+  token = localStorage.getItem('tripToken');
 
   constructor(
     private toastr : ToastrService,
@@ -34,7 +34,9 @@ export class AuthService {
 
   signIn(email : string, password : string) {
     firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(() => {
+    .then((a) => {
+      console.log(a);
+
       firebase.auth()
       .currentUser.getIdToken()
       .then((token: string)=> {
@@ -54,7 +56,7 @@ export class AuthService {
     firebase.auth().signOut()
     .then(() => {
       this.router.navigate(['/auth/signin']);
-      this.token = null;
+      //this.token = null;
     })
     .catch(err => {
       this.toastr.error(err.message, 'Warning')
@@ -62,17 +64,13 @@ export class AuthService {
 
     localStorage.clear();
   }
-  // getToken() {
+  // getToken() { //insteat this --> localStorage in the interseptor
   //   firebase.auth()
   //     .currentUser.getIdToken()
   //     .then((token: string)=> {
   //       this.token = token;
-  //       console.log(token);
-
   //     }).catch(err=> console.log(err))
   //   return this.token;
-
-
   // }
 
   saveToken(token: string){
@@ -80,7 +78,10 @@ export class AuthService {
     }
 
   isAuthenticated() : boolean {
-    return this.token != null;
+    return this.token !== null ;
 }
+
+
+
 }
 
