@@ -19,6 +19,7 @@ const routes: Route[] = [
   {
     path: 'trip',
     loadChildren: () => TripModule,
+    //loadChildren: import('./trip/trip.module').then(m => m.TripModule),
     canActivate: [AuthGuard]
   },
   {
