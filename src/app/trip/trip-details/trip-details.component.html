@@ -8,11 +8,22 @@
         <div class="card-body pt-0">
           <h5 class="card-title">{{trip.name}}</h5>
           <p class="card-text">{{trip.description}}</p>
-          <a routerLink="/trip/edit/{{id}}"
-            class="btn btn-lg btn-danger btn-block btn-login text-uppercase font-weight-bold mb-2">Edit</a>
 
-          <button class="btn btn-lg btn-danger btn-block  text-uppercase font-weight-bold mb-2" type="button"
-            (click)="deleteTrip()">Delete</button>
+          <button class="btn btn-lg btn-success  btn-block  text-uppercase font-weight-bold mb-2" type="button"
+              >Done That</button>
+              <hr>
+          <div *ngIf="isCreator()" >
+            <a routerLink="/trip/edit/{{id}}"
+              class="btn btn-lg btn-danger btn-block btn-login text-uppercase font-weight-bold mb-2">Edit</a>
+
+            <button class="btn btn-lg btn-danger btn-block  text-uppercase font-weight-bold mb-2" type="button"
+              (click)="deleteTrip()">Delete</button>
+          </div>
+          <div *ngIf="!isCreator()">
+            <button class="btn btn-lg btn-danger btn-login btn-block  text-uppercase font-weight-bold mb-2" type="button"
+            >Must Do</button>
+
+          </div>
         </div>
       </div>
     </div>

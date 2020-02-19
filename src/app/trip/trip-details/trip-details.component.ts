@@ -27,9 +27,15 @@ export class TripDetailsComponent implements OnInit {
       this.trip = data;
     })
   }
+
+
+  isCreator(): boolean {
+    return localStorage.getItem('user') === this.trip.creator;
+  }
+
   deleteTrip() {
     this.tripServise.deleteTrip(this.id)
-    .subscribe((data) => {
+    .subscribe(() => {
       this.toastr.success('Trip deleted', "Success");
       this.router.navigate(['/trip/list']);
     })

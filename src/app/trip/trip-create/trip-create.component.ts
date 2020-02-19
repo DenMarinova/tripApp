@@ -4,6 +4,8 @@ import { TripService } from '../trip.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
+
+
 @Component({
   selector: 'app-trip-create',
   templateUrl: './trip-create.component.html',
@@ -17,18 +19,18 @@ export class TripCreateComponent implements OnInit {
     private router : Router,
     private toastr : ToastrService
   ) {
-    this.bindingModel = new TripCreate('', '', '');
+    this.bindingModel = new TripCreate('', '', '','');
   }
 
   ngOnInit(): void {
   }
 
   create() {
+    this.bindingModel.creator = localStorage.getItem('user');
     this.tripService.createNewTrip(this.bindingModel)
-   .subscribe((data) => {
+   .subscribe(() => {
      this.toastr.success('New adventure created', 'Success')
      this.router.navigate(['/trip/list']);
-   console.log(data);
    })
   }
 

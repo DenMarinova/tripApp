@@ -21,7 +21,7 @@ export class TripService {
       const ids = Object.keys(res);
       for (const i of ids) {
         trips
-        .push(new TripList(i, res[i].name, res[i].imagePath, res[i].description));
+        .push(new TripList(i, res[i].name, res[i].imagePath, res[i].description, res[i].creator));
       }
 
       return trips;
@@ -29,7 +29,6 @@ export class TripService {
   }
 
   createNewTrip(body : TripCreate): Observable<{}>{
-    console.log(body);
     return this.http.post(`${baseUrl}.json`, body);
   }
 

@@ -24,6 +24,7 @@ export class AuthService {
             this.saveToken(token);
             this.token = token;
           })
+        this.saveUser(data);
         this.router.navigate(['/trip/list']);
         this.toastr.success('Signed Up!', 'Success');
       })
@@ -34,16 +35,14 @@ export class AuthService {
 
   signIn(email: string, password: string) {
     firebase.auth().signInWithEmailAndPassword(email, password)
-      .then((a) => {
-        console.log(a);
-
+      .then((data) => {
         firebase.auth()
           .currentUser.getIdToken()
           .then((token: string) => {
             this.saveToken(token);
             this.token = token;
           })
-
+        this.saveUser(data);
         this.router.navigate(['/trip/list']);
         this.toastr.success('Loged In!', 'Success')
       })
@@ -79,9 +78,16 @@ export class AuthService {
     localStorage.setItem('tripToken', token);
   }
 
+  saveUser(data: any) {
+    const email  = data.user.email  //.substring(0, data.user.email.lastIndexOf("@"));
+    localStorage.setItem('user', email);
+  }
+
+
   isAuthenticated(): boolean {
     return this.token !== null;
   }
+
 
 
 
