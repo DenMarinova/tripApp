@@ -65,7 +65,7 @@ export class AuthService {
       })
 
   }
-  // getToken() { //insteat this --> localStorage in the interseptor
+  // getToken() { //instead this --> localStorage in the interseptor
   //   firebase.auth()
   //     .currentUser.getIdToken()
   //     .then((token: string)=> {
