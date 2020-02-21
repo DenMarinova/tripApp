@@ -25,9 +25,13 @@ export class TripDetailsComponent implements OnInit {
     this.tripServise.getById(this.id)
     .subscribe(data => {
       this.trip = data;
+    }, (err: Response) => {
+      this.toastr.error(`${err.statusText}`,'Error');
+      if (err.status == 401) {
+       this.router.navigate(['auth/signin']);
+     }
     })
   }
-
 
   isCreator(): boolean {
     return localStorage.getItem('user') === this.trip.creator;
@@ -38,6 +42,11 @@ export class TripDetailsComponent implements OnInit {
     .subscribe(() => {
       this.toastr.success('Trip deleted', "Success");
       this.router.navigate(['/trip/list']);
+    }, (err: Response) => {
+      this.toastr.error(`${err.statusText}`,'Error');
+      if (err.status == 401) {
+       this.router.navigate(['auth/signin']);
+     }
     })
   }
 }

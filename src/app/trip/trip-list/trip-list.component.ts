@@ -18,7 +18,6 @@ export class TripListComponent implements OnInit {
 
   ngOnInit() {
     this.trips = this.tripService.getAllTrips();
-
   }
 
 }

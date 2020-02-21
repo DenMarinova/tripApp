@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 
 
 
+
 @Component({
   selector: 'app-trip-create',
   templateUrl: './trip-create.component.html',
@@ -17,7 +18,8 @@ export class TripCreateComponent implements OnInit {
   constructor(
     private tripService : TripService,
     private router : Router,
-    private toastr : ToastrService
+    private toastr : ToastrService,
+
   ) {
     this.bindingModel = new TripCreate('', '', '','');
   }
@@ -31,7 +33,12 @@ export class TripCreateComponent implements OnInit {
    .subscribe(() => {
      this.toastr.success('New adventure created', 'Success')
      this.router.navigate(['/trip/list']);
-   })
+   }, (err: Response) => {
+    this.toastr.error(`${err.statusText}`,'Error');
+    if (err.status == 401) {
+     this.router.navigate(['auth/signin']);
+   }
+  })
   }
 
 }

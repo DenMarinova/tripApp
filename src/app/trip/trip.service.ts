@@ -6,12 +6,15 @@ import { TripList } from './models/trip-list.model';
 import { TripCreate } from './models/trip-create.model';
 import { Observable } from 'rxjs';
 
+
+
 const baseUrl = 'https://trips-b868f.firebaseio.com/trips/'
 
 @Injectable({ providedIn: 'root'})
 export class TripService {
   constructor(
     private http: HttpClient,
+
     ) { }
 
   getAllTrips() {
@@ -43,5 +46,6 @@ export class TripService {
   deleteTrip(tripId : string) {
     return this.http.delete(`${baseUrl}${tripId}.json`);
   }
+
 
 }

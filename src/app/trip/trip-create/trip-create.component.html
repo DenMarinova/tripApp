@@ -20,7 +20,7 @@
                 <div class="form-label-group">
                   <input
                  [(ngModel)] = "bindingModel.imagePath"
-                   required type="text" id="imagePath" name="imagePath" class="form-control">
+                   required type="text" id="imagePath" name="imagePath" class="form-control" placeholder="http://...">
                   <label for="imagePath">Image URL</label>
                   <!-- <img src="{{bindingModel.imagePath}}" class="img-responsive"> -->
                   <div class="card" style="width: 18rem;">
@@ -32,7 +32,7 @@
                   <textarea
                  [(ngModel)] = "bindingModel.description"
                   required type="text" id="description" class="form-control" name="description" rows="6"></textarea>
-                  <label for="imagePath">Short description</label>
+                  <label for="description">Short description</label>
                 </div>
 
                 <button [disabled]="f.invalid"

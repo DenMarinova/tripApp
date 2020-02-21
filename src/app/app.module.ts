@@ -8,10 +8,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './main/header/header.component';
 import { TokenInterceptor } from './interceptors/token.interseptor';
-import { FooterComponent } from './footer/footer.component';
-import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './main/footer/footer.component';
+import { HomeComponent } from './main/home/home.component';
 import { AuthModule } from './auth/auth.module';
 import { TripModule } from './trip/trip.module';
 

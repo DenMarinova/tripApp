@@ -25,6 +25,11 @@ export class TripEditComponent implements OnInit {
     this.tripService.getById(this.id)
     .subscribe((data) => {
       this.bindingModel = data;
+    }, (err: Response) => {
+      this.toastr.error(`${err.statusText}`,'Error');
+      if (err.status == 401) {
+       this.router.navigate(['auth/signin']);
+     }
     })
   }
 
@@ -36,6 +41,11 @@ export class TripEditComponent implements OnInit {
     .subscribe(() => {
       this.toastr.success('Trip edited!', 'Success!');
       this.router.navigate(['/trip/list']);
+    }, (err: Response) => {
+      this.toastr.error(`${err.statusText}`,'Error');
+      if (err.status == 401) {
+       this.router.navigate(['auth/signin']);
+     }
     })
   }
 }
